@@ -23,10 +23,21 @@ const App = () => {
     }
   };
 
+  const handleRedo = () => {
+    const lastRedo = redoStack.pop();
+    if (lastRedo) {
+      setUndoStack([...undoStack, lastRedo]);
+      setCircles([...undoStack, lastRedo]);
+    }
+  };
+
   return (
     <div style={{ position: 'relative', height: '100vh' }}>
       <button onClick={handleUndo} disabled={undoStack.length === 0}>
         Desfazer
+      </button>
+      <button onClick={handleRedo} disabled={redoStack.length === 0}>
+        Refazer
       </button>
       <div onClick={handleClick} style={{ height: '100%' }}>
         {circles.map((circle, index) => (
