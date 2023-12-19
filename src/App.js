@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Circle from './components/Circle';
 
-function App() {
+const App = () => {
+  const [circles, setCircles] = useState([]);
+
+  const handleClick = (event) => {
+    const { pageX, pageY } = event;
+    const newCircle = { x: pageX, y: pageY };
+    setCircles([...circles, newCircle]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ position: 'relative', height: '100vh' }} onClick={handleClick}>
+      {circles.map((circle, index) => (
+        <Circle key={index} x={circle.x} y={circle.y} />
+      ))}
     </div>
   );
-}
+};
 
 export default App;
