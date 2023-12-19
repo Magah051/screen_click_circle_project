@@ -7,7 +7,7 @@ const Circle = ({ x, y }) => {
         width: '30px',
         height: '30px',
         borderRadius: '50%',
-        background: 'blue',
+        background: '#3498db',
         position: 'absolute',
         top: `${y}px`,
         left: `${x}px`,

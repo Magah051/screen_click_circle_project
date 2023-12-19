@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Circle from './components/Circle';
+import './App.css';
 
 const App = () => {
   const [circles, setCircles] = useState([]);
